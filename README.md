@@ -1,5 +1,5 @@
 # Tye's IL2CPP Metadata Patcher
-A quick way to mod metadata files.
+A quick way to mod IL2CPP global metadata files.
 
 ## Requirements:
 - Node.js and the FS module.
