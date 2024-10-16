@@ -45,6 +45,4 @@ function PatchFile(fileData) {
     } catch (error) {
         throw error;
     }
-
-    console.log(data);
 }
