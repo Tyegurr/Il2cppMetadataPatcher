@@ -1,15 +1,11 @@
 const fs = require("fs");
 
-// basic config vars
-const targetPath = ""; // put the path of your metadata file here
-const outputPath = ""; // put the path of your output file here.
-
 // should be self explanatory. works like a dictionary
-const StringsToReplace = [
-    // examples:
-    //["banana", "apple "]
-    //["GORILLA OS", "TYE OS    "]
-];
+const config = require("./config.json");
+
+var targetPath = config.targetPath;
+var outputPath = config.outputPath;
+var StringsToReplace = config.strings;
 
 // check if file exists
 if (fs.existsSync(targetPath)) {
@@ -36,7 +32,18 @@ function PatchFile(fileData) {
     var data = fileData; // buffer that we change.
    
     for (let i = 0; i < StringsToReplace.length; i++) {
-        data.write(StringsToReplace[i][1], data.indexOf(StringsToReplace[i][0]));
+        //data.write(StringsToReplace[i][1], data.indexOf(StringsToReplace[i][0]));
+        var setString = StringsToReplace[i][1];
+        var lookStringLength = StringsToReplace[i][0].length;
+        var replaceStringLength = StringsToReplace[i][1].length;
+        var diff = Math.abs(lookStringLength - replaceStringLength);
+        if (setString.length < lookStringLength)
+        {
+            for (let a = 0; a < diff; a++) {
+                setString += "\x00";
+            }
+        }
+        data.write(setString, data.indexOf(StringsToReplace[i][0]));
     }
 
     try {
