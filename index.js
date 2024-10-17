@@ -39,6 +39,7 @@ function PatchFile(fileData) {
         var diff = Math.abs(lookStringLength - replaceStringLength);
         if (setString.length < lookStringLength)
         {
+            // fill in data with an empty char. if the string to replace is shorter than the string to look for
             for (let a = 0; a < diff; a++) {
                 setString += "\x00";
             }
