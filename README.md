@@ -3,14 +3,12 @@ A quick way to mod IL2CPP global metadata files.
 
 ## Requirements:
 - Node.js and the FS module.
-- Basic JavaScript knowledge.
 
 ## How 2 Use:
-In the script, replace the "targetPath" variable with the path to your metadata file.
-Then, replace the "outputPath" variable to the path you want your output metadata file to be.
-
-For the StringsToReplace variable, add an array for each string you want to replace.
-The format is "[(Target string), (String to replace target with)]"
-
-## How 2 Run:
-In the command line, go to the directory you downloaded the stuff in. Then, run "node index.js".
+- Step 1: Open the "config.json" file in the editor of your choice.
+- Step 2: Set the "targetPath" variable to the path of your unedited metadata file.
+- Step 3: Set the "outputPath" variable to the path you'd like your outputted metadata file to be.
+- Step 4: In the "strings" variable, for every string you'd like to replace, add a new line within that variable, with this format: [(String to look for), (String to replace with)].
+- Step 4b: Example: "strings": [ ["GORILLA OS", "TYE OS"] ]
+- Step 4c: For every string you want to replace (and if you have more than two arrays), add a comma to the last array you added in the "strings" variable, then a new line.
+- Step 5: In the command line, go to the directory you downloaded the stuff in. Then, run "node index.js".
