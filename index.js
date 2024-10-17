@@ -1,6 +1,4 @@
 const fs = require("fs");
-
-// should be self explanatory. works like a dictionary
 const config = require("./config.json");
 
 var targetPath = config.targetPath;
